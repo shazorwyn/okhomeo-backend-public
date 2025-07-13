@@ -1,0 +1,95 @@
+{% load i18n %} 
+
+{% block subject %}
+  {% blocktrans %}Account Activation on {{ site_name }}{% endblocktrans %}
+{% endblock %}
+
+{% block html_body %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% blocktrans %}Account Activation{% endblocktrans %}</title>
+    <style>
+      body {
+        background-color: #e6f7f7;
+        font-family: 'Segoe UI', Roboto, sans-serif;
+        color: #2d3748;
+        margin: 0;
+        padding: 40px 0;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        text-align: center;
+      }
+
+      h1 {
+        color: #0a8270; /* brand.500 */
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin: 15px 0;
+        color: #4a5568;
+      }
+
+      .button {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: #0a8270; /* brand.500 */
+        color: #ffffff !important;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 8px;
+        margin-top: 20px;
+      }
+
+      .button:hover {
+        background-color: #086e5f;
+      }
+
+      footer {
+        margin-top: 40px;
+        font-size: 14px;
+        color: #718096;
+      }
+
+      a {
+        color: #0a8270;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>{% blocktrans %}Activate Your Account{% endblocktrans %}</h1>
+      <p>{% blocktrans %}Dear User,{% endblocktrans %}</p>
+      <p>
+        {% blocktrans %}Thank you for signing up with {{ site_name }}! To complete your registration, please click the button below:{% endblocktrans %}
+      </p>
+      <a href="{{ protocol }}://{{ domain }}/{{ url|safe }}" class="button">
+        {% blocktrans %}Activate Account{% endblocktrans %}
+      </a>
+      <p>
+        {% blocktrans %}If you didn’t request this, you can safely ignore this email.{% endblocktrans %}
+      </p>
+      <footer>
+        {% blocktrans %}With care, <br /> The {{ site_name }} Team{% endblocktrans %}
+      </footer>
+    </div>
+  </body>
+</html>
+{% endblock %}
